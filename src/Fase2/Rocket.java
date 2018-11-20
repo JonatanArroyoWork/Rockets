@@ -8,11 +8,11 @@ public class Rocket {
 	//Construimos la clase Rocket
 	
     public String code;
-    public int nProp;
     public List<Propeller> propellers = new ArrayList<>(); //Propellers es un array list compuesta por diferentes power 
 
 
-    public Rocket(String code){    	//constructor de code, valor inicial
+    public Rocket(String code) throws Exception { 	//constructor de code, valor inicial
+    	if (code.length() < 8) throw new Exception("Code must have 8 characters");
         this.code = code;
     }
 
@@ -32,7 +32,7 @@ public class Rocket {
         return res;
     }
     
-    public void addPropeller(int maxPower) {   //setter metodo que inserta propellers
+    public void addPropeller(int maxPower)  throws Exception {   //setter metodo que inserta propellers
         Propeller p1 = new Propeller(maxPower);
         propellers.add(p1);
     }

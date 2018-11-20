@@ -4,8 +4,10 @@ class Rocket {
 	private final String code;
 	private int nProp;
 	
-	public Rocket(String code, int nProp)
-	{
+	public Rocket(String code, int nProp)throws Exception {
+		
+        if (code.length() < 8) throw new Exception("Code must have 8 characters");
+        if (nProp <= 0) throw new Exception("The number of propellers must be greater than O");
 		this.code = code;
 		this.nProp = nProp;		
 	}
@@ -27,5 +29,4 @@ class Rocket {
 	}
 		
 }
-
 

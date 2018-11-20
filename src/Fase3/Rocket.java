@@ -5,26 +5,24 @@ import java.util.List;
 
 public class Rocket {
 
-	//Construimos la clase Rocket
 	
     public String code;
-    public int nProp;
-    public List<Propeller> propellers = new ArrayList<>(); //Propellers es un array list compuesta por diferentes power 
-    public int maxSpeed; //Nueva variable, Vmax del cohete
+    public List<Propeller> propellers = new ArrayList<>(); 
+    public int maxSpeed; 
 
-    public Rocket(String code){    	//constructor de code, valor inicial
+    public Rocket(String code){    
         this.code = code;
     }
 
-    public String getCode() {		//getter de code
+    public String getCode() {	
         return code;
     }
 
-    public int getNprop() {			//getter de Npropellers
+    public int getNprop() {			
         return propellers.size();
     }
 
-    public String getPropellers() {		//getter de propellers
+    public String getPropellers() {		
         String res = " ";
         for (Propeller p : propellers) {
             res += p.getMaxPower() + ", ";
@@ -32,18 +30,19 @@ public class Rocket {
         return res;
     }
     
-    public void addPropeller(int power) {   //setter metodo que inserta propellers
+    public void addPropeller(int power) throws Exception {  
+    	
         Propeller p1 = new Propeller(power);
         propellers.add(p1);
     }
     
-    public int getMaxSpeed() {  			//método para averiguar Vmax
-        for (Propeller p : propellers) { 	//"for each mejorado que suma ptencias.
+    public int getMaxSpeed() {  			
+        for (Propeller p : propellers) { 	
             maxSpeed += p.getMaxPower();
         }
         return maxSpeed;
     }
-    public int getSpeed() {					//método para averiguar velocidad
+    public int getSpeed() {					
         int Speed = 0;
         for (Propeller p : propellers) {
             Speed +=p.getPower();
@@ -51,15 +50,15 @@ public class Rocket {
         return Speed;
     }
 
-    public void accelerate (int n){				//setter de aceleración
+    public void accelerate (int n){				
         int acc = 10;
         int order =acc*n;
         for (Propeller p : propellers) {
             p.powerInput(order);
-            //System.out.println(x);
+            
         }
     }
-    public void brake (int n) {					//setter de frenada
+    public void brake (int n) {					
         int brake = -10;
         int order = brake * n;
         for (Propeller p : propellers) {
@@ -67,4 +66,3 @@ public class Rocket {
         }
     }
 }
-

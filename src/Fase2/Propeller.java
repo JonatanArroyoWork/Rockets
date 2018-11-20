@@ -5,7 +5,8 @@ package Fase2;
 public class Propeller {
     public int maxPower;
 
-    public Propeller (int maxPower)  {  //constructor valor inicial
+    public Propeller (int maxPower)   throws Exception {
+        if (maxPower<0) throw new Exception();  //constructor valor inicial
         this.maxPower = maxPower;
     }
 

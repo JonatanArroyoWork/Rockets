@@ -1,35 +1,27 @@
 package Fase3;
 
-//Creamos la clase Propeller
+
 
 public class Propeller {
 	
 	 public int maxPower;
-	 
-	 public int power; //potencia actual que inicializaremos a 0
+	 public int power;								
 	
-	 public Propeller (int maxPower)  {  //constructor valor inicial
-		 
-	     this.maxPower = maxPower;
-	 }
-	
-	 public int getMaxPower() {   // getter de maxPower
-		 
-	     return maxPower;
-	 }
-	 
-	 public int getPower() {   // getter de power
-		 
+    public Propeller (int maxPower) throws Exception {
+        if (maxPower<0) throw new Exception();
+        this.maxPower = maxPower;
+    }
+
+    public int getMaxPower() {
+        return maxPower;
+    } 
+    
+	 public int getPower() {   					
 		 return power;
 	 }
 	 
-	 public void powerInput(int input) { // Método que regula la potencia
-		 //si es <0 será =0 y no puede ser > que Max Power
-		 
-		 //power = 0; //inicializo la potencia a 0
-		 
+	 public void powerInput(int input) { 				
 		 power += input;
-		 
 		 if (power > maxPower) {
 			 power = maxPower;
 			 
